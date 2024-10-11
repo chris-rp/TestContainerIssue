@@ -1,0 +1,22 @@
+<Project>
+	<ItemGroup>
+		<DacpacsToCopy Include="$(MSBuildThisFileDirectory)../build/*.dacpac"/>
+		<!--<DllsToCopy Include="$(MSBuildThisFileDirectory)../build/*.dll"/>-->
+	</ItemGroup>
+	<Target Name="CopyContent" BeforeTargets="Build">
+		<Copy SourceFiles="@(DacpacsToCopy)" DestinationFolder="$(ProjectDir)Dacpacs/%(RecursiveDir)" SkipUnchangedFiles="true"  />
+		<!--<Copy SourceFiles="@(DllsToCopy)" DestinationFolder="$(ProjectDir)Dacpacs/%(RecursiveDir)" SkipUnchangedFiles="true"  />-->
+	</Target>
+	<Target Name="CleanContent" AfterTargets="Clean">
+		<Delete Files="$(OutDir)Dacpacs/*.dacpac" />
+		<RemoveDir Directories="$(OutDir)Dacpacs" />
+	</Target>
+	<ItemGroup>
+		<None Include="$(ProjectDir)Dacpacs/*.dacpac">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Include="$(ProjectDir)Dacpacs/*.dll">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+</Project>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+	<metadata>
+		<id>DatabaseSSDT</id>
+		<version>0.0.1</version>
+		<authors>CRP</authors>
+		<owners>CRP</owners>
+		<description>DatabaseSSDT</description>
+	</metadata>
+	<files>
+		<file src="bin\Debug\*.dacpac" target="build\" />
+		<file src="bin\Debug\*.dll" target="build\" />
+		<file src="Targets\DatabaseSSDT.targets" target="build\" />
+	</files>
+</package>
